@@ -4,3 +4,4 @@ node_modules
 tmp
 dest
 doc
+*.map

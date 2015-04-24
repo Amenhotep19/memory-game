@@ -1,0 +1,6 @@
+.sass-cache
+*.lnk
+node_modules
+tmp
+dest
+doc

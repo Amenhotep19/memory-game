@@ -16,6 +16,8 @@ body {
 	
 	perspective: 1500px;
 	/* transform-style: preserve-3d; */
+	
+	-webkit-user-select: none;
 }
 .card {
 	display: inline-block;

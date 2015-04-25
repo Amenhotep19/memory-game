@@ -1,3 +1,5 @@
+@import 'normalize';
+
 html {
 	height: 100%;
 }
@@ -7,7 +9,7 @@ body {
 	overflow: hidden;
 }
 .cards {
-	font-size: 0; /* To avoid blanks between inline-bloks */
+	font-size: 0; //To avoid blanks between inline-bloks
 	
 	background: url(fireworks.jpg);
 	background-size: cover;
@@ -15,9 +17,9 @@ body {
 	background-position: 50% 50%;
 	
 	perspective: 1500px;
-	/* transform-style: preserve-3d; */
+	//transform-style: preserve-3d;
 	
-	-webkit-user-select: none;
+	user-select: none;
 }
 .card {
 	display: inline-block;
@@ -49,7 +51,7 @@ body {
 	background-color: white;
 	background-origin: content-box;
 	background-position: 0 0;
-	/* background-size: cover; */ /* the default 'auto' value is ok bevaues resolves to 'cover' */
+	/* background-size: cover; */ // the default 'auto' value is ok bevaues resolves to 'cover'
 	background-repeat: no-repeat;
 	border: 1px solid #e7d6d6;
 	
@@ -82,22 +84,24 @@ body {
 }
 
 .card .side.front .symbol {
+	$size: 64px;
+	
 	position: absolute;
 	box-sizing: border-box;
-	width: 64px;
-	height: 64px;
+	width: $size;
+	height: $size;
 	left: 50%;
 	top: 50%;
-	margin: -32px 0 0 -32px;
+	margin: -$size/2 0 0 (-$size/2);
 	
 	text-align: center;
-	line-height: 64px;
+	line-height: $size;
 	
 	background-color: #fffe7f;
 	color: #9b9b60;
 
 	font-family: verdana;
-	font-size: 32px;
+	font-size: $size/2;
 	
 	border-radius: 50%;
 }

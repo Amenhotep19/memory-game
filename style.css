@@ -426,8 +426,8 @@ body {
   position: relative;
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
-  -webkit-transition: -webkit-transform 0.5s linear, opacity 0.5s linear;
-          transition: transform 0.5s linear, opacity 0.5s linear;
+  -webkit-transition: -webkit-transform 0.5s ease-out, opacity 0.5s ease-out;
+          transition: transform 0.5s ease-out, opacity 0.5s ease-out;
   cursor: pointer;
 }
 

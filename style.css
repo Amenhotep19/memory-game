@@ -409,8 +409,8 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 50%;
-  -webkit-perspective: 1500px;
-          perspective: 1500px;
+  -webkit-perspective: 1700px;
+          perspective: 1700px;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;

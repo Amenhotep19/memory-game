@@ -105,3 +105,20 @@ body {
 	
 	border-radius: 50%;
 }
+
+@media screen and (max-width: 600px) {
+	.card .side {
+		padding: 5px;
+	}
+	.card .side.front .symbol {
+		$size: 48px;
+	
+		width: $size;
+		height: $size;
+		margin: -$size/2 0 0 (-$size/2);
+		
+		line-height: $size;
+		
+		font-size: $size/2;
+	}
+}

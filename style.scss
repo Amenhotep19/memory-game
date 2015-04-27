@@ -1,10 +1,6 @@
 @import 'normalize';
 
-html {
-	height: 100%;
-}
 body {
-	height: 100%;
 	background: gray;
 	overflow: hidden;
 }
@@ -52,7 +48,7 @@ body {
 	height: 100%;
 	
 	padding: 10px;
-	background-color: white;
+	background-color: #fff;
 	background-origin: content-box;
 	background-position: 0 0;
 	/* background-size: cover; */ // the default 'auto' value is ok bevaues resolves to 'cover'
@@ -65,10 +61,10 @@ body {
 	color: white;
 }
 .card .side:hover {
-	border: 1px solid red;
+	background-color: #ccf797;
 }
 .card.flipped .side:hover{
-	border: 1px solid #e7d6d6;
+	background-color: #fff;
 }
 .card .side.front {
 	transform: rotateY(180deg);

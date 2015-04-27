@@ -2,7 +2,8 @@ var
 	cards,
 	size,
 	flippedCards = [],
-	delay = 2000
+	flipBackDelay = 2000,
+	removeCardsDelay = 1000
 ;
 
 init();
@@ -66,7 +67,11 @@ function handleFlipping(e) {
 	if (flippedCards.length === 2) {
 		cards.removeEventListener('click', handleFlipping, false);
 		cards.classList.add('disabled');
-		setTimeout(foundPair() ? removeCards : flipBack, delay);
+		
+		if (foundPair())
+			setTimeout(removeCards, removeCardsDelay);
+		else
+			setTimeout(flipBack, flipBackDelay);
 	}
 }
 

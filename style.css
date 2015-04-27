@@ -489,7 +489,7 @@ body {
   border-radius: 50%;
 }
 
-.card .side.back:hover {
+.cards:not(.disabled) .card .side.back:hover {
   background-color: #ccf797;
   cursor: pointer;
 }

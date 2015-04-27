@@ -65,6 +65,7 @@ function handleFlipping(e) {
 	
 	if (flippedCards.length === 2) {
 		cards.removeEventListener('click', handleFlipping, false);
+		cards.classList.add('disabled');
 		setTimeout(foundPair() ? removeCards : flipBack, delay);
 	}
 }
@@ -89,6 +90,7 @@ function removeCards() {
 	flippedCards.length = 0;
 	
 	cards.addEventListener('click', handleFlipping, false);
+	cards.classList.remove('disabled');
 }
 
 function flipBack() {
@@ -98,6 +100,7 @@ function flipBack() {
 	flippedCards.length = 0;
 	
 	cards.addEventListener('click', handleFlipping, false);
+	cards.classList.remove('disabled');
 }
 
 

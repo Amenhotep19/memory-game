@@ -423,11 +423,6 @@ body {
           transform-style: preserve-3d;
   -webkit-transition: -webkit-transform 0.5s ease-out, opacity 0.5s ease-out;
           transition: transform 0.5s ease-out, opacity 0.5s ease-out;
-  cursor: pointer;
-}
-
-.card.flipped {
-  cursor: default;
 }
 
 .card .side {
@@ -449,14 +444,6 @@ body {
           backface-visibility: hidden;
   font-size: 16px;
   color: white;
-}
-
-.card .side:hover {
-  background-color: #ccf797;
-}
-
-.card.flipped .side:hover {
-  background-color: #fff;
 }
 
 .card .side.front {
@@ -500,6 +487,11 @@ body {
   font-family: verdana;
   font-size: 32px;
   border-radius: 50%;
+}
+
+.card .side.back:hover {
+  background-color: #ccf797;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 600px) {

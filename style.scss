@@ -32,11 +32,6 @@ body {
 		transform 0.5s ease-out, 
 		opacity 0.5s ease-out
 	;
-	
-	cursor: pointer;
-}
-.card.flipped {
-	cursor: default;
 }
 .card .side {
 	overflow: hidden;
@@ -59,12 +54,6 @@ body {
 	
 	font-size: 16px;
 	color: white;
-}
-.card .side:hover {
-	background-color: #ccf797;
-}
-.card.flipped .side:hover{
-	background-color: #fff;
 }
 .card .side.front {
 	transform: rotateY(180deg);
@@ -104,6 +93,11 @@ body {
 	font-size: $size/2;
 	
 	border-radius: 50%;
+}
+
+.card .side.back:hover {
+	background-color: #ccf797;
+	cursor: pointer;
 }
 
 @media screen and (max-width: 600px) {

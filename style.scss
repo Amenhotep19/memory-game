@@ -54,6 +54,8 @@ body {
 	
 	font-size: 16px;
 	color: white;
+	
+	transition: background-color 0.3s;
 }
 .card .side.front {
 	transform: rotateY(180deg);

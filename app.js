@@ -1,44 +1,41 @@
 var 
-	cards,
-	size,
-	flippedCards = [],
-	flipBackDelay = 2000,
-	removeCardsDelay = 1000
+	delay = {
+		flipBack: 2000,
+		removeCards: 1000
+	},
+	numCards,
+	cardsEl,
+	flippedCards = []
 ;
 
 init();
 
 function init() {
-	size = 16;
+	numCards = 16;
 	
-	cards = document.querySelector('.cards');
-	var card = cards.querySelector('.card');
+	var cards = generateCards(numCards);
 	
-	var arr = fill(size);
-	card.querySelector('.symbol').innerHTML = arr[0];
-	card.querySelector('.back ').innerHTML = arr[0];
-	arr.slice(1).forEach(function(sym) {
-		var n = card.cloneNode(true);
-		
+	cardsEl = document.querySelector('.cards');
+	var cardEl = cardsEl.querySelector('.card');
+	cardEl.querySelector('.symbol').innerHTML = cards[0];
+	//cardEl.querySelector('.back ').innerHTML = cards[0]; // For debugging
+	cards.slice(1).forEach(function(sym) {
+		var n = cardEl.cloneNode(true);
 		n.querySelector('.symbol').innerHTML = sym;
-		n.querySelector('.back ').innerHTML = sym;
-		cards.appendChild(n);
+		//n.querySelector('.back ').innerHTML = sym; // For debugging
+		cardsEl.appendChild(n);
 	});
 	
-	cards.addEventListener('click', handleFlipping, false);
+	cardsEl.addEventListener('click', handleFlipping, false);
 }
 
-function fill(size) {
-	var 
-		arr = [],
-		i,
-		sym = 0
-	;
+function generateCards(numCards) {
+	var arr = [], i, h = numCards / 2, sym = 0;
 	
-	for (i = 0; i < size / 2; i++)
+	for (i = 0; i < h; i++)
 		arr.push(sym++);
 	sym = 0;
-	for (i = 0; i < size / 2; i++)
+	for (i = 0; i < h; i++)
 		arr.push(sym++);
 	
 	return shuffle(arr);
@@ -49,8 +46,8 @@ function handleFlipping(e) {
 	
 	var target = e.target;
 	
-	if (target === cards)
-		return true;
+	if (target === cardsEl) 
+		return true; // It should never gets here because we are using opacity: 0 to hide cards
 	
 	while (!target.classList.contains('card'))
 		target = target.parentNode;
@@ -65,13 +62,13 @@ function handleFlipping(e) {
 	flippedCards.push(target);
 	
 	if (flippedCards.length === 2) {
-		cards.removeEventListener('click', handleFlipping, false);
-		cards.classList.add('disabled');
+		cardsEl.removeEventListener('click', handleFlipping, false);
+		cardsEl.classList.add('disabled');
 		
 		if (foundPair())
-			setTimeout(removeCards, removeCardsDelay);
+			setTimeout(removeCards, delay.removeCards);
 		else
-			setTimeout(flipBack, flipBackDelay);
+			setTimeout(flipBack, delay.flipBack);
 	}
 }
 
@@ -94,8 +91,8 @@ function removeCards() {
 	
 	flippedCards.length = 0;
 	
-	cards.addEventListener('click', handleFlipping, false);
-	cards.classList.remove('disabled');
+	cardsEl.addEventListener('click', handleFlipping, false);
+	cardsEl.classList.remove('disabled');
 }
 
 function flipBack() {
@@ -104,15 +101,15 @@ function flipBack() {
 	
 	flippedCards.length = 0;
 	
-	cards.addEventListener('click', handleFlipping, false);
-	cards.classList.remove('disabled');
+	cardsEl.addEventListener('click', handleFlipping, false);
+	cardsEl.classList.remove('disabled');
 }
 
-
 /*
-From Underscore.js.
-Returns a shuffled copy of <array>.
-*/
+ * Following function are from Underscore.js.
+ */
+ 
+// Returns a shuffled copy of <array>.
 function shuffle(array) {
 	var 
 		l = array.length,

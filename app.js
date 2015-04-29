@@ -58,7 +58,8 @@ function handleFlipping(e) {
 	if (target.classList.contains('flipped')) // User clicked on the unique flipped card
 		return true;
 	
-	target.classList.add('flipped', rotClass(target, e.clientX, e.clientY));
+	target.classList.add('flipped');
+	target.classList.add(rotClass(target, e.clientX, e.clientY));
 	flippedCards.push(target);
 	
 	if (flippedCards.length === 2) {
@@ -73,12 +74,8 @@ function handleFlipping(e) {
 }
 
 function rotClass(n, x, y) {
-	var // card client-space/doc space(no scrolling on page) extent
-		xmin = n.offsetLeft,
-		xmax = n.offsetLeft + n.offsetWidth
-	;
-	
-	return x - xmin <= xmax - x ? 'rot-y-ccw' : 'rot-y-cw'
+	var brect = n.getBoundingClientRect(); // card client-space/doc space(no scrolling on page) extent
+	return x - brect.left <= brect.right - x ? 'rot-y-ccw' : 'rot-y-cw'
 }
 
 function foundPair() {

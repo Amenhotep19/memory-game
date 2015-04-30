@@ -11,6 +11,8 @@ var
 init();
 
 function init() {
+	setupPolyfills();
+	
 	numCards = 16;
 	
 	var cards = generateCards(numCards);
@@ -58,8 +60,7 @@ function handleFlipping(e) {
 	if (target.classList.contains('flipped')) // User clicked on the unique flipped card
 		return true;
 	
-	target.classList.add('flipped');
-	target.classList.add(rotClass(target, e.clientX, e.clientY));
+	target.classList.add('flipped', rotClass(target, e.clientX, e.clientY));
 	flippedCards.push(target);
 	
 	if (flippedCards.length === 2) {
@@ -132,4 +133,33 @@ function shuffle(array) {
 	  min = 0;
 	}
 	return min + Math.floor(Math.random() * (max - min + 1));
- }
+}
+
+function setupPolyfills() {
+	classList();
+}
+
+
+/*
+ * Polyfill for classList.add() multiple args(IE 10/11, Firefox < 26)
+ *
+ * Adapted from https://github.com/eligrey/classList.js/
+ */
+
+function classList() {
+	var testElement = document.createElement('_');
+
+	testElement.classList.add('c1', 'c2');
+	
+	if (!testElement.classList.contains('c2')) {
+		var originalMethod = DOMTokenList.prototype.add;
+
+		DOMTokenList.prototype.add = function(token) {
+			var i, len = arguments.length;
+			for (i = 0; i < len; i++) {
+				token = arguments[i];
+				originalMethod.call(this, token);
+			}
+		}
+	}
+}

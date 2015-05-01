@@ -424,7 +424,6 @@ body {
   -webkit-transition: -webkit-transform 0.5s ease-out, opacity 0.5s ease-out;
           transition: transform 0.5s ease-out, opacity 0.5s ease-out;
 }
-
 .card .side {
   position: absolute;
   left: 0px;
@@ -447,33 +446,27 @@ body {
   -webkit-transition: background-color 0.3s;
           transition: background-color 0.3s;
 }
-
 .card .side.front {
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
   background-image: -webkit-linear-gradient(orange, orange);
   background-image: linear-gradient(orange, orange);
 }
-
 .card .side.back {
   background-image: -webkit-linear-gradient(gray, gray);
   background-image: linear-gradient(gray, gray);
 }
-
 .card.rot-y-cw {
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
 }
-
 .card.rot-y-ccw {
   -webkit-transform: rotateY(-180deg);
           transform: rotateY(-180deg);
 }
-
 .card.removed {
   opacity: 0;
 }
-
 .card .side.front .symbol {
   position: absolute;
   box-sizing: border-box;

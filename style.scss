@@ -7,15 +7,14 @@ body {
 .cards {
 	font-size: 0; //To avoid blanks between inline-bloks
 	
+	user-select: none;
+	
+	perspective: 1700px;
+	
 	background: url(http://www.marvelipsum.com/1024/768/random);
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
-	
-	perspective: 1700px;
-	//transform-style: preserve-3d;
-	
-	user-select: none;
 }
 .card {
 	display: inline-block;
@@ -25,7 +24,6 @@ body {
 	margin: 0px;
 	position: relative;
 	
-	//perspective: 1500px;
 	transform-style: preserve-3d;
 	
 	transition: 

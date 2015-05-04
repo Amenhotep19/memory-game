@@ -400,16 +400,16 @@ body {
 
 .cards {
   font-size: 0;
-  background: url(http://www.marvelipsum.com/1024/768/random);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  -webkit-perspective: 1700px;
-          perspective: 1700px;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  -webkit-perspective: 1700px;
+          perspective: 1700px;
+  background: url(http://www.marvelipsum.com/1024/768/random);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
 }
 
 .card {
